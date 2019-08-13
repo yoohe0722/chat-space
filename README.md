@@ -39,7 +39,7 @@ Things you may want to cover:
 |:----------|:----------|:------------|
 | text      | text      |             |
 | image     | strings   |             |
-| user_id   | integer   | null: false, foreign_key: true |
+| user_id   | references| null: false, foreign_key: true |
 | group_id  | integer   | null: false, foreign_key: true |
 ## Association
 - belongs_to :user
