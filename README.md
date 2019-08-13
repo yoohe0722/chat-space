@@ -48,7 +48,7 @@ Things you may want to cover:
 # groupsテーブル
 | Column    | Type      | Options     |
 |:----------|:----------|:------------|
-| group_name| text      | null: false |
+| name      | string    | null: false |
 | user_id   | integer   | null: false, foreign_key: true |
 | post_id   | integer   | null: false, foreign_key: true |
 ## Association
