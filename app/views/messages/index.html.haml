@@ -3,19 +3,19 @@
 .left-contents
   .header
     .header__username
-      現在のユーザー名
+      = current_user.name
     .header__icon
-      .edit 
-        = fa_icon 'edit' 
+      .edit
+        = fa_icon 'edit'
       .cog
-        = fa_icon 'cog'
-    
+        = link_to edit_user_path(current_user) do
+          = fa_icon 'cog', class: 'icon'
+
   .groups
     .groups__name
       グループ名1
     .groups__last-message
       ここに最新のメッセージが入る
-      -#  
     .groups__name
       グループ名1
     .groups__last-message
