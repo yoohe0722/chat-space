@@ -83,41 +83,67 @@
       margin-top: 10px;
 
       padding-bottom: 40px;
-    } 
-  }  
+    }
+  }
 
-  .footer{
+  .form {
+    background-color: #DDDDDD;
+    box-sizing: border-box;
     height: 90px;
-    background-color: gainsboro;
-    display: flex;
-    justify-content: space-between;
-    
-    &__form{
+    padding: 20px 40px 20px 40px;
+    // display: flex;
+    // justify-content: space-between;
+    &__message {
+      border: none;
+      float: left;
       height: 50px;
-      width: calc(100vw - 395px);
-      background-color: #FFFFFF;
-      font-size: 16px;
-      color: #434a54;
-      margin: auto 0 auto 40px ;
-      padding-left: 10px;
-      line-height: 50px;
+      width: calc(100% - 150px);
+      padding-left:15px;
+    }
+    &__mask {
+      background-color: $white;
+      float: left;
+      height: 50px;
+      padding-right: 10px;
+      &__image {
+        font-size: 20px;
+        line-height: 50px;
+      }
+      .hidden {
+        display: none;
+      }
 
-        .form__images{
-          font-size: 20px;
-          color: black;
-          display:inline;
-          float: right;
-          margin-right: 10px;
-        }
+
+      // font-size: 16px;
+      // color: #434a54;
+      // margin: auto 0 auto 40px ;
+      // padding-left: 10px;
+      // line-height: 50px;
+
+        // .form__mask__images{
+        //   font-size: 20px;
+        //   color: black;
+        //   display:inline;
+        //   float: right;
+        //   margin-right: 10px;
+        // }
     }
 
-    &__send-btn{
-      height: 50px;
-      background-color:  #38AEF0;
-      margin: auto 40px auto 15px ;
-      padding: 0px 30px 0px 30px;
-      color: #ffffff;
-      line-height: 50px;
+    &__submit{
+    background-color: $light_blue;
+    border: none;
+    color: $white;
+    float: right;
+    font-size: 16px;
+    height: 50px;
+    margin-left: 15px;
+    padding: 0 30px;
+      // height: 50px;
+      // background-color:  #38AEF0;
+      // margin: auto 40px auto 15px ;
+      // padding: 0px 30px 0px 30px;
+      // color: #ffffff;
+      // line-height: 50px;
     }
 
   }
