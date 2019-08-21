@@ -8,50 +8,15 @@
   .header
     .group_detail
       .group_detail__current-group
-        現在のグループ名
+        グループ名
       .group_detail__member-list
         Member : Aさん,Bさん,Cさん
     .header__edit-btn
-      = link_to "edit", class: "edit-btn" do
+      =link_to "edit", class: "edit-btn" do
         Edit
 
   .messages
-    .messages__title
-      .messages__title--user
-        テスト
-      .messages__title--date
-        2019/08/17 15:07
-    .messages__text
-      ここにテキストが入ります。
-      -# ----------------------------------
-    .messages__title
-      .messages__title--user
-        テスト
-      .messages__title--date
-        2019/08/17 15:07
-    .messages__text
-      ここにテキストが入ります。
-    .messages__title
-      .messages__title--user
-        テスト
-      .messages__title--date
-        2019/08/17 15:07
-    .messages__text
-      ここにテキストが入ります。
-    .messages__title
-      .messages__title--user
-        テスト
-      .messages__title--date
-        2019/08/17 15:07
-    .messages__text
-      ここにテキストが入ります。
-    .messages__title
-      .messages__title--user
-        テスト
-      .messages__title--date
-        2019/08/17 15:07
-    .messages__text
-      ここにテキストが入ります。
+    = render partial: 'message', collection: @messages
 
   .form
     = form_for [@group, @message] do |f|
