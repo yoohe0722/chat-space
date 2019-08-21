@@ -1,0 +1,54 @@
+.left-contents{
+  width: 300px;
+  height: 100%;
+  float: left;
+  color: $white;
+  box-sizing: border-box;
+  a {
+    color: white;
+    text-decoration: none;
+  }
+
+  .header{
+    font-size: 16px;
+    background-color: $side_blue_dark;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+
+    &__username{
+      display: flex;
+      margin: auto 20px;
+      font-weight: bold;
+    }
+    &__lists{
+      display: flex;
+      margin: auto 20px;
+      margin-left: 10px;
+
+      .icon{
+        margin-left:5px;
+      }
+    }
+  }
+
+  .groups {
+    background-color:$side_blue_light;
+    height: calc(100vh - 100px);
+    width: 300px;
+    padding: 0 20px;
+    overflow: auto;
+    
+    .group {
+      box-sizing: border-box;
+      padding: 20px 0 20px;
+      &__name {
+        font-size: 15px;
+      }
+      &__message {
+        font-size: 11px;
+        margin-top: 5px;
+      }
+    }
+  }
+}
