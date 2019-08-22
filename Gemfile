@@ -45,6 +45,10 @@ group :development, :test do
   gem 'faker'
 end
 
+group :test, :development do
+  gem 'capybara'
+end
+
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
