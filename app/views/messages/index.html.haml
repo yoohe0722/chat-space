@@ -17,10 +17,11 @@
 
   .messages
     = render partial: 'message', collection: @messages
+    .page_bottom
 
   .form
     = form_for [@group, @message] do |f|
-      = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+      = f.text_field :content, class: 'form__message textbox', placeholder: 'type a message', id: "message_text"
       .form__mask
         = f.label :image, class: 'form__mask__image' do
           = fa_icon 'picture-o', class: 'icon'
