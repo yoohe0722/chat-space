@@ -1,6 +1,5 @@
 $(function() {
 
-  // ↓自信ないやつ
   var search_result = $("#user-search-result");
 
   function appendUser(user) {
@@ -14,11 +13,9 @@ $(function() {
     var html = `<div class='chat-group-user__name'>${ msg }</div>`
     search_result.append(html);
   }
-// ↑ここまで
 
   $(".username__input").on("keyup", function() {
     var input = $(".username__input").val();
-    console.log(input);
     $.ajax({
       type: 'GET',
       url: '/users',
@@ -33,7 +30,6 @@ $(function() {
           appendUser(user);
         })
       } else {
-        console.log("testtest");
         appendErrMsgToHTML("一致するユーザーはいません");
       }
     })
