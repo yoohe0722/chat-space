@@ -72,7 +72,7 @@ $(function(){
       alert('error');
     });
   };
-  if(document.URL.match('/messages'))　{
+  if(document.URL.match('/messages')) {
     setInterval(reloadMessages, 5000);
   }
 });
