@@ -44,4 +44,35 @@ $(function(){
       $(".form__submit").removeAttr("disabled");
       });
   })
+
+  var reloadMessages = function() {
+    //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
+    group_id = $(".group_detail__current-group").attr('data-id');
+    last_message_id = $(".message:last").attr('data-id');
+    console.log(last_message_id)
+    console.log(group_id)
+    $.ajax({
+      //ルーティングで設定した通りのURLを指定
+      url: `/groups/${group_id}/api/messages`,
+      //ルーティングで設定した通りhttpメソッドをgetに指定
+      type: 'get',
+      dataType: 'json',
+      //dataオプションでリクエストに値を含める
+      data: {id: last_message_id}
+    })
+    .done(function(messages) {
+      //追加するHTMLの入れ物を作る
+      var insertHTML = '';
+      //配列messagesの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
+
+      //メッセージが入ったHTMLを取得
+
+      //メッセージを追加
+
+    })
+    .fail(function() {
+      console.log('error');
+    });
+  };
+  setInterval(reloadMessages, 5000);
 });
