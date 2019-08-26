@@ -17,8 +17,9 @@ $(function(){
                     ${image}
                 </div>
               </div>`
-    return html;
+              return html;
   }
+
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
@@ -57,22 +58,25 @@ $(function(){
       //ルーティングで設定した通りhttpメソッドをgetに指定
       type: 'get',
       dataType: 'json',
-      //dataオプションでリクエストに値を含める
       data: {id: last_message_id}
     })
     .done(function(messages) {
-      //追加するHTMLの入れ物を作る
-      var insertHTML = '';
-      //配列messagesの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
-
-      //メッセージが入ったHTMLを取得
-
-      //メッセージを追加
-
-    })
+      if (messages.length !== 0) {
+        var insertHTML = '';
+          messages.forEach(function(message){
+            insertHTML = buildHTML(message);
+          });
+        $('.messages').append(insertHTML);
+        $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+        }
+      })
     .fail(function() {
       console.log('error');
     });
   };
   setInterval(reloadMessages, 5000);
 });
+
+
+// if(document.URL.match(`/groups/${group_id}/messages`))　{
+// }
