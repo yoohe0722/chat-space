@@ -1,7 +1,7 @@
 $(function(){
   function buildHTML(message){
     var image = message.image? `<img src= "${message.image}"></img>`: "";
-    var html =`<div class="message">
+    var html =`<div class="message" data-id="${message.id}">
                 <div class="upper-message">
                   <div class="upper-message__user-name">
                     ${message.user_name}
@@ -17,8 +17,9 @@ $(function(){
                     ${image}
                 </div>
               </div>`
-    return html;
+              return html;
   }
+
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
@@ -44,4 +45,34 @@ $(function(){
       $(".form__submit").removeAttr("disabled");
       });
   })
+
+  var reloadMessages = function() {
+    //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
+    group_id = $(".group_detail__current-group").attr('data-id');
+    last_message_id = $(".message:last").attr('data-id');
+    $.ajax({
+      //ルーティングで設定した通りのURLを指定
+      url: `/groups/${group_id}/api/messages`,
+      //ルーティングで設定した通りhttpメソッドをgetに指定
+      type: 'get',
+      dataType: 'json',
+      data: {id: last_message_id}
+    })
+    .done(function(messages) {
+      if (messages.length !== 0) {
+        var insertHTML = '';
+          messages.forEach(function(message){
+            insertHTML = buildHTML(message);
+          });
+        $('.messages').append(insertHTML);
+        $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+        }
+      })
+    .fail(function() {
+      alert('error');
+    });
+  };
+  if(document.URL.match('/messages')) {
+    setInterval(reloadMessages, 5000);
+  }
 });

@@ -7,7 +7,7 @@
 .right-contents
   .header
     .group_detail
-      .group_detail__current-group
+      .group_detail__current-group{data: {id: @group.id}}
         = @group.name
       .group_detail__member-list
         Member : 
