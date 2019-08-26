@@ -8,9 +8,11 @@
   .header
     .group_detail
       .group_detail__current-group
-        グループ名
+        = @group.name
       .group_detail__member-list
-        Member : Aさん,Bさん,Cさん
+        Member : 
+        - @group.users.each do |user|
+          = user.name
     .header__edit-btn
       =link_to "edit", class: "edit-btn" do
         Edit
