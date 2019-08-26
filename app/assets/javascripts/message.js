@@ -74,9 +74,7 @@ $(function(){
       console.log('error');
     });
   };
-  setInterval(reloadMessages, 5000);
+  if(document.URL.match('/messages'))　{
+    setInterval(reloadMessages, 5000);
+  }
 });
-
-
-// if(document.URL.match(`/groups/${group_id}/messages`))　{
-// }
