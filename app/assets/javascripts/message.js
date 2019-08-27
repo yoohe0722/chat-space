@@ -46,33 +46,32 @@ $(function(){
       });
   })
 
+  var group_id = $(".group_detail__current-group").attr('data-id');
   var reloadMessages = function() {
-    //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
-    group_id = $(".group_detail__current-group").attr('data-id');
-    last_message_id = $(".message:last").attr('data-id');
-    $.ajax({
-      //ルーティングで設定した通りのURLを指定
-      url: `/groups/${group_id}/api/messages`,
-      //ルーティングで設定した通りhttpメソッドをgetに指定
-      type: 'get',
-      dataType: 'json',
-      data: {id: last_message_id}
-    })
-    .done(function(messages) {
-      if (messages.length !== 0) {
-        var insertHTML = '';
-          messages.forEach(function(message){
-            insertHTML = buildHTML(message);
-          });
-        $('.messages').append(insertHTML);
-        $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
-        }
+    if(document.URL.match(`groups/${group_id}/messages`)) {
+      last_message_id = $(".message:last").attr('data-id');
+      $.ajax({
+        //ルーティングで設定した通りのURLを指定
+        url: `/groups/${group_id}/api/messages`,
+        //ルーティングで設定した通りhttpメソッドをgetに指定
+        type: 'get',
+        dataType: 'json',
+        data: {id: last_message_id}
       })
-    .fail(function() {
-      alert('error');
-    });
-  };
-  if(document.URL.match('/messages')) {
-    setInterval(reloadMessages, 5000);
+      .done(function(messages) {
+        if (messages.length !== 0) {
+          var insertHTML = '';
+            messages.forEach(function(message){
+              insertHTML = buildHTML(message);
+            });
+          $('.messages').append(insertHTML);
+          $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+          }
+        })
+      .fail(function() {
+        alert('error');
+      });
+    };
   }
+  setInterval(reloadMessages, 5000);
 });
