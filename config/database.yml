@@ -48,10 +48,7 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  # <<: *default
-  adapter: mysql2
-  encoding: utf8
-  pool: 5
+  <<: *default
   database: chat-space_production
   username: root
   password: <%= ENV['DATABASE_PASSWORD'] %>
