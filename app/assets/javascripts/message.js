@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load',(function(){
   function buildHTML(message){
     var image = message.image? `<img src= "${message.image}"></img>`: "";
     var html =`<div class="message" data-id="${message.id}">
@@ -33,6 +33,7 @@ $(function(){
       contentType: false
     })
     .done(function(message){
+      console.log(message)
       var html = buildHTML(message);
       $('.messages').append(html);
       $('#new_message')[0].reset();
@@ -73,5 +74,5 @@ $(function(){
       });
     };
   }
-  setInterval(reloadMessages, 5000);
-});
+  // setInterval(reloadMessages, 5000);
+}));

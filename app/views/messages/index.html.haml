@@ -19,7 +19,6 @@
 
   .messages
     = render partial: 'message', collection: @messages
-    .page_bottom
 
   .form
     = form_for [@group, @message] do |f|
