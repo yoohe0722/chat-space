@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load',(function(){
   function buildHTML(message){
     var image = message.image? `<img src= "${message.image}"></img>`: "";
     var html =`<div class="message" data-id="${message.id}">
@@ -74,4 +74,4 @@ $(function(){
     };
   }
   setInterval(reloadMessages, 5000);
-});
+}));

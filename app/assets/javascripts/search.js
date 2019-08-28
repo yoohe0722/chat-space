@@ -1,4 +1,4 @@
-$(function() {
+$(document).on('turbolinks:load',(function(){
 
   var search_result = $("#user-search-result");
   var add_member = $("#user-added-member");
@@ -57,4 +57,4 @@ $(function() {
   $(document).on("click", ".js-remove-btn", function(){
     $(this).parent().remove();
   })
-});
+}));
