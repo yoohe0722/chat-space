@@ -44,13 +44,13 @@ $(document).on('turbolinks:load',(function(){
     })
     .always(() => {
       $(".form__submit").removeAttr("disabled");
-      });
+    })
   })
 
   var group_id = $(".group_detail__current-group").attr('data-id');
   var reloadMessages = function() {
     if(document.URL.match(`groups/${group_id}/messages`)) {
-      last_message_id = $(".message:last").attr('data-id');
+      last_message_id = $(".message:last").attr('data-id')
       $.ajax({
         //ルーティングで設定した通りのURLを指定
         url: `/groups/${group_id}/api/messages`,
@@ -63,8 +63,8 @@ $(document).on('turbolinks:load',(function(){
         if (messages.length !== 0) {
           var insertHTML = '';
             messages.forEach(function(message){
-              insertHTML = buildHTML(message);
-            });
+              insertHTML = buildHTML(message)
+            })
           $('.messages').append(insertHTML);
           $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
           }
@@ -73,6 +73,6 @@ $(document).on('turbolinks:load',(function(){
         alert('error');
       });
     };
-  }
+  };
   setInterval(reloadMessages, 5000);
 }));
