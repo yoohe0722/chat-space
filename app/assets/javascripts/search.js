@@ -24,7 +24,6 @@ $(function() {
                 add_member.append(html);
   }
 
-
   $(".username__input").on("keyup", function() {
     var input = $(".username__input").val();
     $.ajax({
@@ -58,5 +57,4 @@ $(function() {
   $(document).on("click", ".js-remove-btn", function(){
     $(this).parent().remove();
   })
-
 });
