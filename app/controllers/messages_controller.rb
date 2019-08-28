@@ -10,7 +10,7 @@ class MessagesController < ApplicationController
     @message = @group.messages.new(message_params)
     if @message.save!
       respond_to do |format|
-        format.html { redirect_to message_path(params[:message_id])  }
+        format.html { redirect_to group_messages_path(params[:message_id]) }
         format.json
       end
   end
@@ -24,6 +24,7 @@ end
 
   def set_group
     @group = Group.find(params[:group_id])
+    Time.zone = 'Tokyo'
   end
 end
 
